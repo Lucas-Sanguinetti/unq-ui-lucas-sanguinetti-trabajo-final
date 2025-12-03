@@ -4,6 +4,7 @@ import { getQuestions, getDifficulties, getAnswer } from '././services/api';
 
 function App() {
   const [questions, setQuestions] = useState([])
+  const [index, setindex] = useState(0)
 
   useEffect(() => {
         getQuestions()
@@ -14,17 +15,25 @@ function App() {
   console.log(questions);
   
   return (
-    <div>
-       <ul className="lista" >
-            {questions.map((question, id) => (
-                <li key={id}>
-                <div>
-                  {question.question}
-                  {question.option1}
-                </div>
-            </li>
-         ))}
-        </ul>
+    <div className="all">
+      <div className="containerQuestion">
+        {questions[1].question}
+      </div>
+      <div className="contenedorDeColumnas">
+          <div className="container">
+            {questions[1].option1}
+          </div>
+          <div className="container">
+            {questions[1].option2}
+          </div>
+
+          <div className="container">
+            {questions[1].option3}
+          </div>
+          <div className="container">
+            {questions[1].option4}
+          </div>
+      </div>
     </div>
   )
 }
