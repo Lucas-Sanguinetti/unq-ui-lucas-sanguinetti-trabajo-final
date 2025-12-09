@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react'
 import './questions.css'
-import { getQuestions, getDifficulties, getAnswer } from '../../services/api';
+import { useParams } from "react-router-dom";
+import { getQuestions, getAnswer } from '../../services/api';
 
 function Question() {
+  const { difficulty } = useParams();
+
   const [questions, setQuestions] = useState()
   const [question, setQuestion] = useState()
   const [index, setIndex] = useState(0)
@@ -12,7 +15,9 @@ function Question() {
   const [optionChoosed, setOptionChoosed] = useState()
 
   useEffect(() => {
-        getQuestions()
+    console.log(difficulty);
+    
+        getQuestions(`${difficulty}`)
         .then((response) => setTimeout(() => setQuestions(response), 1000))
         .catch((error) => { setTimeout(() => setError(error), 1000) }) 
     }, []); 

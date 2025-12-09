@@ -8,9 +8,9 @@ const apiClient = axios.create({
 });
 
 // Función para las preguntas
-export const getQuestions = async (dificult) => {
+export const getQuestions = async (difficulty) => {
     try {
-        const response = await apiClient.get(`/questions?difficulty=${dificult}`);
+        const response = await apiClient.get(`/questions?difficulty=${difficulty}`);
         return response.data;
     } catch (error) {
         console.error("Error fetching questions:", error);
