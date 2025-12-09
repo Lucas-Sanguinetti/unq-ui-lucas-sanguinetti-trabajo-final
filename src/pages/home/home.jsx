@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import './home.css'
 import { useNavigate } from 'react-router-dom';
 import {getDifficulties} from '../../services/api';
+import { DifficultyContext } from "../../Difficultycontext.jsx";
 
 function Home() {
   const [difficulties, setDifficulties] = useState()
   const [error, setError] = useState()
+  const {setCurrentDifficulty} = useContext(DifficultyContext);
 
   const navigate = useNavigate();
 
@@ -17,7 +19,8 @@ function Home() {
     }, []); 
 
   const  handleClick = async (option) => {
-    navigate(`/questions/${option}`)
+    setCurrentDifficulty(option)
+    navigate(`/questions`)
   }
 
 

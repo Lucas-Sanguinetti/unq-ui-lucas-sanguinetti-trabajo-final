@@ -18,9 +18,14 @@ function Results() {
 
 
 
-  const  handleClick = async (option) => {
-  
+  const  handleClickPlayAgain = async (option) => {
+
   }
+
+  const  handleClickChangeDifficult= async (option) => {
+        
+  }
+
 
 
 
@@ -36,10 +41,10 @@ function Results() {
             Congratulations, you have answered rigth {right} of the {total} questions
         </div>
         <div>
-            <button>
+            <button onClick={() => handleClickPlayAgain(difficulty)}>
                 play again
             </button>
-            <button>
+            <button onClick={() => handleClickChangeDifficult(difficulty)}>
                 change difficulty
             </button>
         </div>

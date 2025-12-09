@@ -2,21 +2,21 @@ import { createContext, useState } from "react";
 
 export const DifficultyContext = createContext();
 
-export const ResultProvider = ({ children }) => {
+export const DifficultyProvider = ({ children }) => {
   const [difficulty, setDifficulty] = useState(0);
 
-  const setActualDifficulty = (difficulty) => setDifficulty(difficulty);
+  const setCurrentDifficulty = (difficulty) => setDifficulty(difficulty);
 
 
   return (
-    <ResultContext.Provider
+    <DifficultyContext.Provider
       value={{
         difficulty,
-        setActualDifficulty,
+        setCurrentDifficulty,
       }}
     >
       {children}
-    </ResultContext.Provider>
+    </DifficultyContext.Provider>
   );
 };
 
