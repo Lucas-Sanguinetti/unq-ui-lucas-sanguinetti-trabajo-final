@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext  } from 'react'
 import './questions.css'
-import { useParams } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { getQuestions, getAnswer } from '../../services/api';
+import { ResultContext } from "../../Resultcontext.jsx";
+import { DifficultyContext } from "../../Difficultycontext.jsx";
 
 function Question() {
-  const { difficulty } = useParams();
 
   const [questions, setQuestions] = useState()
   const [question, setQuestion] = useState()
@@ -13,18 +14,26 @@ function Question() {
   const [isAnswered, setIsAnswered] = useState()
   const [answer, setAnswer] = useState()
   const [optionChoosed, setOptionChoosed] = useState()
+  const {setTotalQuestions, addRight} = useContext(ResultContext);
+  const {difficulty} = useContext(DifficultyContext);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log(difficulty);
-    
         getQuestions(`${difficulty}`)
         .then((response) => setTimeout(() => setQuestions(response), 1000))
-        .catch((error) => { setTimeout(() => setError(error), 1000) }) 
+        .catch((error) => { setTimeout(() => setError(error), 1000) });
+        
     }, []); 
 
   useEffect(() => {
+    
     if(questions){
-      setQuestion(questions[index])
+      setQuestion(questions[index])  
+      if (index + 1 === questions.length) {
+          handleNavigate()
+      }
     }
   }, [index, questions])
 
@@ -36,6 +45,9 @@ function Question() {
         setOptionChoosed(option)
         setIsAnswered(true)
         setAnswer(answer.answer)
+        if (answer.answer){
+          addRight(1)
+        }
       }, 500)
     }
 
@@ -44,6 +56,11 @@ function Question() {
       setIndex((prev) => prev + 1)
     }, 1000)
   }
+
+  const handleNavigate = () => {
+      setTotalQuestions(questions.length)
+      navigate(`/results`)
+  } 
 
   const getButtonClass = (option) => {
             let base = 'button';
