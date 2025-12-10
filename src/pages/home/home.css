@@ -1,4 +1,3 @@
-/* Contenedor principal */
 .home-container {
   display: flex;
   flex-direction: column;
@@ -10,35 +9,33 @@
   padding: 20px;
 
   text-align: center;
-  color: white; /* texto blanco */
+  color: white;
   font-size: 1.4rem;
 }
 
-/* Texto de bienvenida */
 .home-title {
   margin-bottom: 30px;
 }
 
-/* Contenedor del listado de botones */
 .contenedorDeColumnas {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Lista */
 .home-list {
+  display: flex;
+  flex-direction: row; 
   list-style: none;
   padding: 0;
   margin: 0;
+  gap : 20px;
 }
 
-/* Cada item */
 .home-item {
   margin: 15px 0;
 }
 
-/* Botones */
 .home-btn {
   padding: 12px 25px;
   min-width: 180px;
@@ -61,4 +58,30 @@
 
 .home-btn:active {
   transform: scale(0.95);
+}
+
+@media (max-width: 600px){
+
+  .home-container {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .home-list {
+    flex-direction: column;
+    gap: 10x;
+  }
+
+  .home-btn {
+    min-width: auto;
+    width: 85%;
+    padding: 10px 15px;
+
+    border-width: 1px;
+    font-size: 1rem;
+  }
+
+  .home-title {
+    font-size: 1.2rem;
+  }
 }

@@ -45,3 +45,20 @@
 .result-btn:active {
   transform: scale(0.95);
 }
+
+@media (max-width: 360px) {
+
+  .buttons-container {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .result-btn {
+    width: 85%;
+    min-width: auto;
+    padding: 10px 15px;
+    border-width: 1px;
+  }
+}
