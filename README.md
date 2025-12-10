@@ -1,18 +1,28 @@
-# React + Vite
+## Instalacion de Preguntados
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Requisitos:
 
-Currently, two official plugins are available:
+- Tener **Git** instalado
+- Tener conexión a internet
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Pasos:
 
-## React Compiler
+- Crear una carpeta en tu computadora
+- Abrir una consola dentro de esa carpeta y poner el comando: _git clone https://github.com/Lucas-Sanguinetti/unq-ui-lucas-sanguinetti-trabajo-final.git_
+- Presionar **Enter** y esperar a que **Git** termine de clonar
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
 
-Note: This will impact Vite dev & build performances.
+## Levantar el proyecto
 
-## Expanding the ESLint configuration
+### Requisitos:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Conexión a internet
+- Tener el proyecto clonado
+
+### Pasos:
+
+- Abrir la carpeta donde esta clonado el proyecto 
+- Abrir la consola de comandos
+- Ejecutar: _npm install_ (solo es necesario la primera vez que se esta por levantar)
+- Ejecutar _npm run dev_
+- Abrir en un navegador la direccion **http** que responde la consola al comando anterior
