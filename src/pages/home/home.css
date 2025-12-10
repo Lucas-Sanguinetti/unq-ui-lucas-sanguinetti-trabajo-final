@@ -1,0 +1,64 @@
+/* Contenedor principal */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  width: 100%;
+  padding: 20px;
+
+  text-align: center;
+  color: white; /* texto blanco */
+  font-size: 1.4rem;
+}
+
+/* Texto de bienvenida */
+.home-title {
+  margin-bottom: 30px;
+}
+
+/* Contenedor del listado de botones */
+.contenedorDeColumnas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Lista */
+.home-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Cada item */
+.home-item {
+  margin: 15px 0;
+}
+
+/* Botones */
+.home-btn {
+  padding: 12px 25px;
+  min-width: 180px;
+  font-size: 1.1rem;
+  font-weight: bold;
+
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.home-btn:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+.home-btn:active {
+  transform: scale(0.95);
+}

@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext  } from 'react'
 import './results.css'
+import { useNavigate } from 'react-router-dom';
 import { ResultContext } from "../../Resultcontext.jsx";
 
 function Results() {
@@ -7,8 +8,9 @@ function Results() {
   const [questions, setQuestions] = useState()
   const [answered, setAnswered] = useState()
   const [error, setError] = useState()
-  const {total, right} = useContext(ResultContext);
+  const {total, right, reset} = useContext(ResultContext);
 
+  const navigate = useNavigate();
 
   useEffect(() => {
         setQuestions(total)
@@ -18,33 +20,35 @@ function Results() {
 
 
 
-  const  handleClickPlayAgain = async (option) => {
-
+  const  handleClickPlayAgain = async () => {
+        reset()
+        navigate("/questions")
   }
 
-  const  handleClickChangeDifficult= async (option) => {
-        
+  const  handleClickChangeDifficult= async () => {
+        reset()
+        navigate("/")
   }
 
 
 
 
-  if (error) return <p>Error al cargar: {error.message}</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   if (!questions) {
-  return <p>Cargando resultados</p>;
+  return <p>Loading results</p>;
   }
 
   return (
-    <div className="all">
+    <div className="allContainer">
         <div>
             Congratulations, you have answered rigth {right} of the {total} questions
         </div>
-        <div>
-            <button onClick={() => handleClickPlayAgain(difficulty)}>
+        <div className="buttons-container">
+            <button className="result-btn" onClick={() => handleClickPlayAgain()} >
                 play again
             </button>
-            <button onClick={() => handleClickChangeDifficult(difficulty)}>
+            <button  className="result-btn" onClick={() => handleClickChangeDifficult()}>
                 change difficulty
             </button>
         </div>

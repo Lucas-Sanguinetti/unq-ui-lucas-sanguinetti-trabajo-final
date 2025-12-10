@@ -24,22 +24,22 @@ function Home() {
   }
 
 
-  if (error) return <p>Error al cargar: {error.message}</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   if (!difficulties) {
-  return <p>Cargando pagina principal...</p>;
+  return <p>Loadign home...</p>;
   }
 
   return (
-    <div>
-      <div>
+    <div className="home-container">
+      <div className="home-title">
         Welcome To Preguntados, please select the difficult to play the game
       </div>
       <div className="contenedorDeColumnas">
-        <ul>
+        <ul className="home-list">
             {difficulties.map((difficulty) => (
-                <li key={difficulty}> 
-                    <button onClick={() => handleClick(difficulty)}>
+                <li key={difficulty} className="home-item"> 
+                    <button className="home-btn" onClick={() => handleClick(difficulty)}>
                         {difficulty}
                     </button>
                 </li>  
